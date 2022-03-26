@@ -1,0 +1,122 @@
+//fCC JavaScript Solutions
+//Owner
+//jawacaser
+//Modified
+//Mar 14, 2022 by me
+//Opened
+//8:55 PM by me
+//Created
+//Mar 17, 2022 with Google Drive Web
+//Add a description
+//Viewers can download
+
+function convertToRoman(num) {
+  let strNum = num.toString();
+  let numArr = [...strNum];
+  console.log(numArr)
+
+  let roman = [];
+  let ones = numArr.slice(-1);
+  let tens = numArr.slice(-2,-1);
+  let hund = numArr.slice(-3,-2);
+  let thou = numArr.slice(-4,-3);
+
+  function dig1(ones) {
+    if (ones == '1') {
+      roman.push("I");
+    } else if (ones == 2) {
+      roman.push("II");
+    } else if (ones == 3) {
+      roman.push("III");
+    } else if (ones == 4) {
+      roman.push("IV");
+    } else if (ones == 5) {
+      roman.push("V");
+    } else if (ones == 6) {
+      roman.push("VI");
+    } else if (ones == 7) {
+      roman.push("VII");
+    } else if (ones == 8) {
+      roman.push("VIII");
+    } else if (ones == 9) {
+      roman.push("IX")
+    }
+  }
+
+  function dig2(tens) {
+    if (tens == '1') {
+      roman.unshift("X");
+    } else if (tens == 2) {
+      roman.unshift("XX");
+    } else if (tens == 3) {
+      roman.unshift("XXX");
+    } else if (tens == 4) {
+      roman.unshift("XL");
+    } else if (tens == 5) {
+      roman.unshift("L");
+    } else if (tens == 6) {
+      roman.unshift("LX");
+    } else if (tens == 7) {
+      roman.unshift("LXX");
+    } else if (tens == 8) {
+      roman.unshift("LXXX");
+    } else if (tens == 9) {
+      roman.unshift("XC")
+    }
+  }  
+
+  function dig3(hund) {
+    if (hund == '1') {
+      roman.unshift("C");
+    } else if (hund == 2) {
+      roman.unshift("CC");
+    } else if (hund == 3) {
+      roman.unshift("CCC");
+    } else if (hund == 4) {
+      roman.unshift("CD");
+    } else if (hund == 5) {
+      roman.unshift("D");
+    } else if (hund == 6) {
+      roman.unshift("DC");
+    } else if (hund == 7) {
+      roman.unshift("DCC");
+    } else if (hund == 8) {
+      roman.unshift("DCCC");
+    } else if (hund == 9) {
+      roman.unshift("CM")
+    }
+  }
+
+  function dig4(thou) {
+    if (thou == '1') {
+      roman.unshift("M");
+    } else if (thou == 2) {
+      roman.unshift("MM");
+    } else if (thou == 3) {
+      roman.unshift("MMM");
+    } else if (thou == 4) {
+      roman.unshift("uh oh");
+    } else if (thou == 5) {
+      roman.unshift("uh oh");
+    } else if (thou == 6) {
+      roman.unshift("uh oh");
+    } else if (thou == 7) {
+      roman.unshift("uh oh");
+    } else if (thou == 8) {
+      roman.unshift("uh oh");
+    } else if (thou == 9) {
+      roman.unshift("uh oh")
+    }
+  }
+
+  dig1(ones);
+  dig2(tens);
+  dig3(hund);
+  dig4(thou);
+
+ return roman.reduce(function(a,b) {
+   return a+b;
+ })
+}
+
+console.log(convertToRoman(3689));
